@@ -12,11 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
 
     if (isProcessing) {
-      console.warn("🚫 중복 제출 차단됨");
+      console.warn("중복 제출 차단됨");
       return;
     }
     isProcessing = true;
-    console.log("✅ 추천 요청 실행");
+    console.log("추천 요청 실행");
 
     const userInput = {};
     form.querySelectorAll('select').forEach(sel => {
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         selectedList.appendChild(li);
       });
 
-      if (json.description) {  // ✅ 여기만 수정
+      if (json.description) {
         const desc = document.createElement("p");
         desc.className = "llm-description";
         desc.innerHTML = json.description.replace(/\n/g, "<br>");
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
       form.classList.add('hidden');
       resultSection.classList.remove('hidden');
     } catch (err) {
-      console.error("❌ 서버 요청 실패", err);
+      console.error("서버 요청 실패", err);
     } finally {
       isProcessing = false;
     }

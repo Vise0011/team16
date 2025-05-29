@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const resultSection = document.getElementById('resultSection');
   const resultName    = document.getElementById('resultName');
   const resetBtn      = document.getElementById('resetBtn');
-  const menuReason    = document.getElementById('menuReason'); // ✅ reason 영역
+  const menuReason    = document.getElementById('menuReason');
 
   Object.values(menuData).flat().forEach(name => {
     const li = document.createElement('li');
@@ -53,12 +53,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // ✅ 추천 버튼 클릭 이벤트
+  // 추천 버튼 클릭 이벤트
   recommendBtn.addEventListener('click', async () => {
     const choice = selectedMenu || menuInput.value.trim();
     if (!choice) return;
 
-    // ✅ 이전 결과 제거
+    // 이전 결과 제거
     resultName.innerHTML = '';
     menuReason.innerHTML = '';
 
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // ✅ 리셋 버튼
+  // 리셋 버튼
   resetBtn.addEventListener('click', () => {
     resultSection.classList.add('hidden');
     inputSection.classList.remove('hidden');

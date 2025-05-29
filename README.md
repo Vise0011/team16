@@ -79,3 +79,4 @@ python app/llama/model_download.py
 
 uvicorn app.main:app --reload
 
+5. Garbage 폴더는 사용되지 않으니 삭제해도 무방합니다.

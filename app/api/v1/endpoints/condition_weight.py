@@ -8,10 +8,10 @@ router = APIRouter()
 def recommend_by_condition(user_input: dict = Body(...)):
     top5_menus = get_weighted_top5(user_input)
     
-    # 🔥 여기가 핵심: 설명 생성
+    # 설명 생성
     description = ask_hf_llama(top5_menus)
 
-    # 🔁 description도 함께 반환
+    # description 반환
     return {
         "top5": [menu["menu"] for menu in top5_menus],
         "description": description

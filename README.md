@@ -1,3 +1,4 @@
+<details> <summary> 디렉토리 구조 </summary>
 git  파일을 다운로드 하셨으면
 python /root/16_team/app/llama/model_download.py 파일을 실행시켜서 모델을 다운로드 해주세요(40GB)
 
@@ -60,4 +61,21 @@ python /root/16_team/app/llama/model_download.py 파일을 실행시켜서 모�
 │   │  └── var/
 │   ├── data_to_db.py
 │   └── summation.py
+</details>
+
+1. **레포 클론**
+   ```bash
+   git clone https://github.com/Vise0011/team16.git
+   cd team16
+
+2. Python 환경 설정
+conda activate your-env
+pip install -r requirements.txt
+
+3. 모델 다운로드( 다운시 개인 토큰 및 모델 사용권한 필요/ huggingface-cli login)
+python app/llama/model_download.py
+
+4. FastAPI 서버 실행
+
+uvicorn app.main:app --reload
 

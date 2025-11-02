@@ -1,10 +1,10 @@
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
-# ✅ 로컬 모델 경로 (이미 다운로드된 경로)
+# 로컬 모델 경로
 MODEL_DIR = "/root/16_team/app/llama/Llama-3.1-8B-Instruct"
 
-# ✅ 모델 및 토크나이저 로드 (최초 실행 시 느릴 수 있음)
+# 모델 및 토크나이저 로드
 tokenizer = AutoTokenizer.from_pretrained(MODEL_DIR)
 model = AutoModelForCausalLM.from_pretrained(
     MODEL_DIR,
@@ -42,10 +42,10 @@ def ask_hf_llama(top5_list: list[dict]) -> str:
     print("🧠 [프롬프트 전송]")
     print(prompt_text)
 
-    # ✅ 토크나이징
+    # 토크나이징
     inputs = tokenizer(prompt_text, return_tensors="pt").to("cuda")
 
-    # ✅ 생성
+    # 생성
     outputs = model.generate(
         **inputs,
         max_new_tokens=512,
@@ -56,7 +56,7 @@ def ask_hf_llama(top5_list: list[dict]) -> str:
         eos_token_id=tokenizer.eos_token_id
     )
 
-    # ✅ 결과 디코딩
+    # 결과 디코딩
     full_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
     only_response = full_text[len(prompt_text):].strip()
 
